@@ -1,0 +1,6 @@
+<h1>oshow page tedxt</h1>
+<%= @chat.name %>
+<%= form_for @user_chat do |f| %>
+  <%= f.hidden_field :chat_id, value: @chat.id  %>
+  <%= f.submit "Join Chat" %>
+<% end %>
