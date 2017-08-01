@@ -3,4 +3,5 @@ Rails.application.routes.draw do
 
   resources :users, :chats, :comments
   get "/", to: "application#index", as: "home"
+  
 end
