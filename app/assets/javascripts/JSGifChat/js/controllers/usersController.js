@@ -14,8 +14,12 @@ function submitUserForm(){
     let config = {method: "POST", headers: headers, body: JSON.stringify(userForm) }
 
     let request = fetch(url,config)
-    request.then( resp => resp.json() ).then( data => console.log(data) )
+    request.then( resp => resp.json() ).then( data => store.users.push(data) )
+
+    render(chatRoomsHTML(), "body")
+
 
     // let new_user = new User(email)
   })
+
 }
