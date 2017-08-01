@@ -26,9 +26,12 @@ function submitChatRoom() {
 
     let config2 = {method: "POST", headers: headers2, body: JSON.stringify(chatForm) }
     let request2 = fetch(url2,config2)
-    request2.then( resp => resp.json() ).then( data => {store.chats.push(data)} )
-    render(chatRoomHTML(), "body")
-    debugger
-
+    request2.then( resp => resp.json() ).
+        then(data => {store.chats.push(data)}).
+          then(() => {render(chatRoomsHTML(), "body")})
   })
+}
+
+function wait(text="hello") {
+    setTimeout(function(){ console.log(`${text}`) }, 3000);
 }
