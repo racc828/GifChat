@@ -1,10 +1,10 @@
 function createUser(){
   idCount = 0
-  return class User {
+  return class {
     constructor(name){
       this.name = name
       this.id = ++idCount
-      
+
     }
   }
 }

@@ -1,6 +1,6 @@
 function createComment(){
   idCount = 0
-  return class Comment {
+  return class {
     constructor(text){
       this.text = text
       this.chat_id =
