@@ -33,10 +33,24 @@ function submitChatRoom() {
 }
 
 function joinChatRoom(){
-  $("body").on("click", ".overlay", function(event){
+  $("body").on("click", ".chat-room li", function(event){
     event.preventDefault();
-    alert("Joining Chat")
+    let chatToAdd = getChat(this)
+    store.users[0].chats.push(chatToAdd)
+    render(chatRoomHTML(chatToAdd), "body")
   })
+}
+
+function getChat(thisChat){
+  console.log("Joining Chat")
+  console.log(thisChat.id.slice(-1))
+  let idToFind = parseInt(thisChat.id.slice(-1))
+  let foundChat = findChatById(idToFind)
+  return foundChat[0]
+}
+
+function findChatById(chatId){
+  return store.chats.filter(chat => {return chat.id === chatId})
 }
 
 

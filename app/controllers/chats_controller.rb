@@ -7,8 +7,14 @@ class ChatsController < ApplicationController
 
   def create
     chat = Chat.create(chat_params)
-    # render json:{name:user.name,id:user.id}
-    render json: chat
+    render json:{
+      name:chat.name,
+      id:chat.id, 
+      comments: chat.comments,
+      created_at: chat.created_at,
+      updated_at: chat.updated_at
+    }
+    # render json: chat
   end
 
   private

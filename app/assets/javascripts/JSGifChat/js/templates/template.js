@@ -35,14 +35,14 @@ function getChatsHTML() {
   return store.chats.map(function(chat){
 
     return `<li id="chat${chat.id}"><div class="overlay"></div>${chat.name}</li>`
-  }).join("")
+  }).reverse().join("")
 }
 
-function chatRoomHTML(){
+function chatRoomHTML(chatRoom){
   return `<div id="chatroom" class="main-container">
+  <h1>${chatRoom.name}</h1>
     <div id="chatbox">
       <ul id="chat1">
-        <li> NEW CHAT ROOM </li>
       </ul>
 
       <form id="add-comment">
