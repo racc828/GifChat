@@ -40,7 +40,7 @@ function getChatsHTML() {
 
 function chatRoomHTML(chatRoom){
   return `<div id="chatroom" class="main-container">
-  <h1>${chatRoom.name}</h1>
+  <h1 id="chatroom-name">${chatRoom.name}</h1>
     <div id="chatbox">
       <ul id="chat1">
         ${getCommentsHTML()}

@@ -1,10 +1,14 @@
 function submitComment() {
   $("body").on("submit", "#add-comment", function(event){
-    event.preventDefault()
+    event.preventDefault();
+    let chatroomName = $('#chatroom-name')[0].innerText
+
+    let newchatroom = findChatByName(chatroomName)
+
     let commentsInput = $("#add-comments-input").val()
     console.log(commentsInput)
 
-    let commentsForm = {comment:{text: `${commentsInput}`}}
+    let commentsForm = {comment:{text: `${commentsInput}`, user_id:`${store.users[0].id}`, chat_id:`${newchatroom.id}`}}
 
     let url6 = "http://localhost:3000/comments/"
 
@@ -15,6 +19,6 @@ function submitComment() {
     let request6 = fetch(url6,config6)
     request6.then( resp => resp.json() ).
         then(data => {store.users[0].chats[0].comments.push(data)}).
-          then(() => { render(chatRoomHTML(), "body")})
+          then(() => { render(chatRoomHTML(newchatroom), "body")})
   })
 }
