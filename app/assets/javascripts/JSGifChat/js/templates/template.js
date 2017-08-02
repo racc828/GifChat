@@ -16,7 +16,7 @@ function chatRoomsHTML() {
 
       <form id="add-chat">
         <label> Enter New Chat Name:</label>
-        <input id="chat-room-name" type="text" name="enter-chat-name">
+        <input id="chat-room-name" type="text" name="enter-chat-name" required>
         <input type="submit" value="create chat" class="btn">
       </form>
 
@@ -43,6 +43,7 @@ function chatRoomHTML(chatRoom){
   <h1>${chatRoom.name}</h1>
     <div id="chatbox">
       <ul id="chat1">
+        ${getCommentsHTML()}
       </ul>
 
       <form id="add-comment">
@@ -52,4 +53,10 @@ function chatRoomHTML(chatRoom){
 
     </div>
   </div>`
+}
+
+function getCommentsHTML() {
+  return store.users[0].chats[0].comments.map(comment => {
+    return `<li id="comment${comment.id}">${comment.text}</li>`
+  }).join("")
 }

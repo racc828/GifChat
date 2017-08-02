@@ -23,3 +23,18 @@ function submitUserForm(){
   })
 
 }
+
+// function updateUserChat(user_obj) {
+//   let url4 = `http://localhost:3000/users/${user_obj.id}`
+//
+//     let userForm = {user:{:chats `${chatRoomInput}`}}
+//
+//   let  headers4 = new Headers
+//   headers4.set('Content-Type', 'application/json')
+//
+//   let config4 = {method: "PATCH", headers: headers4, body: JSON.stringify(userForm) }
+//   let request4 = fetch(url4,config4)
+//   request4.then( resp => resp.json() ).
+//       then(data => {console.log(data)})
+//
+// }

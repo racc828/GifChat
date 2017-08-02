@@ -7,6 +7,7 @@ $(document).ready(function(){
   getChatsHTML();
   submitChatRoom();
   joinChatRoom();
+  submitComment();
 })
 
 function render(html, into) {
