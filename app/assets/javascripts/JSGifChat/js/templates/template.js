@@ -1,27 +1,30 @@
 function loginHTML(){
-  return `<div id="homepage">
+  return `<div id="homepage" class="main-container">
     <div id="login">
+    <h3> Login </h3>
       <form id="add-user">
         <label> Enter Email:</label>
         <input id="email-input" type="email" name="enter-email">
-        <input type="submit" value="join">
+        <input type="submit" value="join" class="btn">
       </form>
     </div>
   </div>`
 }
 
 function chatRoomsHTML() {
-  return `<div id="chatrooms">
+  return `<div id="chatrooms" class="main-container">
 
       <form id="add-chat">
         <label> Enter New Chat Name:</label>
         <input id="chat-room-name" type="text" name="enter-chat-name">
-        <input type="submit" value="create chat">
+        <input type="submit" value="create chat" class="btn">
       </form>
 
       <div id="chats">
         <ul id="chatList">
-          ${getChatsHTML()}
+          <div class="chat-room">
+            ${getChatsHTML()}
+          </div>
         </ul>
       </div>
 
@@ -30,12 +33,13 @@ function chatRoomsHTML() {
 
 function getChatsHTML() {
   return store.chats.map(function(chat){
-    return `<li>${chat.name}</li>`
+
+    return `<li id="chat${chat.id}"><div class="overlay"></div>${chat.name}</li>`
   }).join("")
 }
 
 function chatRoomHTML(){
-  return `<div id="chatroom">
+  return `<div id="chatroom" class="main-container">
     <div id="chatbox">
       <ul id="chat1">
         <li> NEW CHAT ROOM </li>
@@ -43,7 +47,7 @@ function chatRoomHTML(){
 
       <form id="add-comment">
         <input id="add-comments-input" type="text">
-        <input type="submit" value="Add Comment">
+        <input type="submit" value="Add Comment" class="btn">
       </form>
 
     </div>

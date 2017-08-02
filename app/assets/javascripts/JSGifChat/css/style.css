@@ -1,0 +1,67 @@
+body {
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  background-size:cover;
+  min-height:80rem;
+  background-repeat:no-repeat;
+
+}
+
+.main-container {
+  width:600px;
+  margin-left:0;
+  margin-right:0;
+  margin:auto;
+  margin-top:10%;
+  background-color:rgba(225,225,225, .8);
+  min-height:400px;
+  padding:20px 40px;
+  border-radius:9px;
+}
+
+input[type=email]:not(.browser-default):focus:not([readonly]) {
+  border-bottom: 1px solid #330867;
+}
+
+.btn {
+  background:#330867;
+}
+
+.btn:hover {
+  background:#8839E9;
+}
+
+#chatrooms {
+  background:transparent;
+  width:90%;
+}
+
+.chat-room li {
+  float:left;
+  background:rgba(225,225,225, .8);
+  padding:10px;
+  margin:10px;
+  width:23%;
+  border-radius:9px;
+  min-height:200px;
+  position:relative;
+
+}
+
+.overlay {
+  height:100%;
+  width:100%;
+  position:absolute;
+  border-radius:9px;
+  left:0;
+  top:0;
+  background:transparent;
+  transition: background .3s ease-in!important;
+}
+
+.overlay:hover {
+  background:pink;
+}
+
+#chatList {
+  text-align:center;
+}

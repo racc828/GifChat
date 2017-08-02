@@ -32,6 +32,14 @@ function submitChatRoom() {
   })
 }
 
+function joinChatRoom(){
+  $("body").on("click", ".overlay", function(event){
+    event.preventDefault();
+    alert("Joining Chat")
+  })
+}
+
+
 function wait(text="hello") {
     setTimeout(function(){ console.log(`${text}`) }, 3000);
 }
