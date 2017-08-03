@@ -5,19 +5,8 @@ class UsersController < ApplicationController
   def create
     user = User.create(user_params)
 
-    # if user.save
-    #   render json:{
-    #     id:user.id,
-    #     name:user.name,
-    #     chats: user.chats,
-    #     created_at: user.created_at,
-    #     updated_at: user.updated_at
-    #   }
-    # else
-    #   render json:{
-    #
-    #   }
-    # end
+    render json: user
+
 
     # render json:{
     #   id:user.id,
@@ -27,13 +16,12 @@ class UsersController < ApplicationController
     #   updated_at: user.updated_at
     # }
 
-
-    render json: user
   end
 
-  # def check_user
-  #   user = User.all.select {|user| user.name == params[:name]}
-  # end
+  def check_user
+    user = User.find_by(name: params[:name])
+    render json: user
+  end
 
   private
 

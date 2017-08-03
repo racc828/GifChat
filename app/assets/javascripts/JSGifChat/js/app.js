@@ -2,7 +2,7 @@ const store = {users: [], chats: [], comments: []}
 
 $(document).ready(function(){
   render(loginHTML(), "body")
-  // checkIfUserExists();
+  checkIfUserExists();
   submitUserForm();
   getChatRooms();
   // getChatsHTML();

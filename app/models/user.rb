@@ -1,6 +1,6 @@
 class User < ApplicationRecord
 
-  # validates :name, uniqueness: true 
+  validates :name, uniqueness: true 
 
   has_many :comments
   has_many :user_chats
