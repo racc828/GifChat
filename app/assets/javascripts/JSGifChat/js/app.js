@@ -8,7 +8,7 @@ $(document).ready(function(){
   submitChatRoom();
   joinChatRoom();
   submitComment();
-  goBack()
+  goBack();
 })
 
 function render(html, into) {

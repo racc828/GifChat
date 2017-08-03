@@ -26,6 +26,40 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
   background:#330867;
 }
 
+.send-message-btn {
+  position:absolute;
+  bottom:35px;
+  right:20px;
+}
+
+::-webkit-input-placeholder {
+    color: #000;;
+     opacity: 1 !important;
+}
+
+#add-comments-input {
+  margin-bottom:0;
+  color:#000;
+  opacity:1;
+
+}
+
+#chat-room-name {
+  color:#fff;
+}
+
+#chatbox {
+  width:95%;
+  margin:auto;
+}
+
+#back {
+  position:absolute;
+  left:20px;
+  top:18px;
+  font-size:3.0rem;
+}
+
 .btn:hover {
   background:#8839E9;
 }
@@ -33,6 +67,38 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
 #chatrooms {
   background:transparent;
   width:90%;
+}
+
+#chatroom {
+  padding-top:0;
+  padding-left:0;
+  padding-right:0;
+  position:relative;
+}
+
+.chat-top-bar {
+  background:#30cfd0;
+  height:80px;
+  color:#000;
+  padding-top:10px;
+  text-align:center;
+  border-top-right-radius: 9px;
+  border-top-left-radius: 9px;
+}
+
+.chat-container {
+  height:400px;
+  overflow-y:auto;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+.chat-container li {
+  margin: 20px 10px;
+  padding:10px 10px;
+  border:1px solid #330867;
+  border-radius:4px;
+
 }
 
 .chat-room li {
@@ -59,7 +125,22 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
 }
 
 .overlay:hover {
-  background:pink;
+  background:#30cfd0;
+  color:#000;
+}
+
+.overlay h5 {
+  color:transparent;
+  transition: color .3s ease-in!important;
+  z-index:40000;
+  padding-top:65px;
+  width:100%;
+  height:100%;
+  position:absolute;
+}
+
+.overlay h5:hover {
+  color:#000;
 }
 
 #chatList {

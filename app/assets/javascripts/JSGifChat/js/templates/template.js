@@ -4,7 +4,7 @@ function loginHTML(){
     <h3> Login </h3>
       <form id="add-user">
         <label> Enter Email:</label>
-        <input id="email-input" type="email" name="enter-email">
+        <input id="email-input" type="email" name="enter-email" required>
         <input type="submit" value="join" class="btn">
       </form>
     </div>
@@ -34,22 +34,24 @@ function chatRoomsHTML() {
 function getChatsHTML() {
   return store.chats.map(function(chat){
 
-    return `<li id="chat${chat.id}"><div class="overlay"></div>${chat.name}</li>`
+    return `<li id="chat${chat.id}"><div class="overlay"><h5>Join Chat</h5></div>${chat.name}</li>`
   }).reverse().join("")
 }
 
 function chatRoomHTML(chatRoom){
   return `<div id="chatroom" class="main-container">
-  <h1 id="chatroom-name">${chatRoom.name}</h1>
-  <button id="back">Back</button>
+  <div class="chat-top-bar">
+      <i class="small material-icons" id="back">arrow_back</i>
+      <h5 id="chatroom-name">${chatRoom.name}</h5>
+    </div>
     <div id="chatbox">
       <ul id="chat1">
-        ${getCommentsHTML(chatRoom.id)}
+        <div class="chat-container" id="chat-scroll"> ${getCommentsHTML(chatRoom.id)}</div>
       </ul>
 
       <form id="add-comment">
-        <input id="add-comments-input" type="text">
-        <input type="submit" value="Add Comment" class="btn">
+        <input id="add-comments-input" type="text" placeholder="Send Message" required>
+        <button type="submit" class="btn send-message-btn"><i class="material-icons">send</i></button>
       </form>
 
     </div>
