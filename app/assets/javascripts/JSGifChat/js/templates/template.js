@@ -3,8 +3,8 @@ function loginHTML(){
     <div id="login">
     <h3> Login </h3>
       <form id="add-user">
-        <label> Enter Email:</label>
-        <input id="email-input" type="email" name="enter-email">
+        <label> Enter Username:</label>
+        <input id="username-input" type="text" name="enter-username" required>
         <input type="submit" value="join" class="btn">
       </form>
     </div>
