@@ -11,6 +11,8 @@ class CommentsController < ApplicationController
     render json:{
       text:comment.text,
       id:comment.id,
+      user_id: comment.user_id,
+      chat_id: comment.chat_id,
       created_at: comment.created_at,
       updated_at: comment.updated_at
     }
@@ -20,7 +22,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:text)
+    params.require(:comment).permit(:text, :user_id, :chat_id)
   end
 
 

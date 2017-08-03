@@ -58,6 +58,13 @@ function findChatByName(chatName){
   return store.chats.filter(chat => {return chat.name === chatName})[0]
 }
 
+function goBack(){
+  $("body").on("click", "#back", function(event){
+    event.preventDefault();
+    render(chatRoomsHTML(), "body")
+  })
+}
+
 
 function wait(text="hello") {
     setTimeout(function(){ console.log(`${text}`) }, 3000);

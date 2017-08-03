@@ -41,9 +41,10 @@ function getChatsHTML() {
 function chatRoomHTML(chatRoom){
   return `<div id="chatroom" class="main-container">
   <h1 id="chatroom-name">${chatRoom.name}</h1>
+  <button id="back">Back</button>
     <div id="chatbox">
       <ul id="chat1">
-        ${getCommentsHTML()}
+        ${getCommentsHTML(chatRoom.id)}
       </ul>
 
       <form id="add-comment">
@@ -55,8 +56,15 @@ function chatRoomHTML(chatRoom){
   </div>`
 }
 
-function getCommentsHTML() {
-  return store.users[0].chats[0].comments.map(comment => {
+function getCommentsHTML(chatId) {
+  let filteredComments = getCommentsById(chatId)
+  return filteredComments.map(comment => {
     return `<li id="comment${comment.id}">${comment.text}</li>`
   }).join("")
+}
+
+function getCommentsById(commentId){
+  return store.comments.filter(comment => {
+    return comment.chat_id === commentId
+  })
 }

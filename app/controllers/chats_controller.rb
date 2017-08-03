@@ -2,9 +2,31 @@ class ChatsController < ApplicationController
 
   def index
     chats = Chat.all
-    comments = chats.map do  |chat|
+
+    # render json: chats
+
+    # new_chats = chats.map do |chat|
+    #   # var = ',\"comments\":[]}'
+    #   # a = chat.to_json[0..-2]
+    #   # a << var
+    #   # tester = JSON.parse(a)
+    #   chat
+    #   byebug
+    #   puts "hello"
+    # end
+
+    # comments = chats.map do |chat|
+    #   chat.comments
+    # end
+
+    # byebug
+
+    chats = chats.map do |chat|
+      # byebug
+      # chat
       {chat: chat, comments: chat.comments}
     end
+
     render json: {chats: chats, comments: comments }
   end
 

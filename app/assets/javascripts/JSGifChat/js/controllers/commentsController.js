@@ -18,7 +18,7 @@ function submitComment() {
     let config6 = {method: "POST", headers: headers6, body: JSON.stringify(commentsForm) }
     let request6 = fetch(url6,config6)
     request6.then( resp => resp.json() ).
-        then(data => {store.users[0].chats[0].comments.push(data)}).
+        then(data => {store.comments.push(data)}).
           then(() => { render(chatRoomHTML(newchatroom), "body")})
   })
 }
