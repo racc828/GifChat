@@ -43,9 +43,24 @@ function joinChatRoom(){
     let chatToAdd = getChat(this)
     // getComments(chatToAdd)
     // store.users[0].chats.push(chatToAdd)
-
+    new_interval(chatToAdd)
     render(chatRoomHTML(chatToAdd), "body")
   })
+}
+
+
+function new_interval(chatRoom) {
+   intervalId = setInterval(function(){
+     removeAllComments();
+     getAllComments().
+     then(() => {$("body #chat-scroll").empty().append(getCommentsHTML(chatRoom.id))
+    } )
+  }, 1000);
+ }
+
+
+function removeAllComments() {
+  store.comments = []
 }
 
 function getChat(chatObject){
@@ -67,11 +82,9 @@ function findChatByName(chatName){
 function goBack(){
   $("body").on("click", "#back", function(event){
     event.preventDefault();
+    clearInterval(intervalId)
+    removeAllComments()
+    getAllComments()
     render(chatRoomsHTML(), "body")
   })
-}
-
-
-function wait(text="hello") {
-    setTimeout(function(){ console.log(`${text}`) }, 3000);
 }

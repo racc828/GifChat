@@ -35,7 +35,7 @@ function getAllComments(){
   let config11 = {method: "GET", headers: headers11}
   let request11 = fetch(url11, config11)
 
-  let CommentHTMLList = request11.then( resp => resp.json() ).
+  return request11.then( resp => resp.json() ).
     then( data => {
        return data.forEach( obj => { store.comments.push(obj)
     })

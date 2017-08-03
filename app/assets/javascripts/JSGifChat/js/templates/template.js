@@ -46,11 +46,7 @@ function chatRoomHTML(chatRoom){
       <i class="small material-icons" id="back">arrow_back</i>
       <h5 id="chatroom-name">${chatRoom.name}</h5>
     </div>
-    <div id="chatbox">
-      <ul id="chat1">
-        <div class="chat-container" id="chat-scroll"> ${getCommentsHTML(chatRoom.id)}</div>
-      </ul>
-
+    ${reRenderChatBoxHTML(chatRoom)}
       <form id="add-comment">
         <input id="add-comments-input" type="text" placeholder="Send Message" required>
         <button type="submit" class="btn send-message-btn"><i class="material-icons">send</i></button>
@@ -58,6 +54,16 @@ function chatRoomHTML(chatRoom){
 
     </div>
   </div>`
+}
+
+function reRenderChatBoxHTML(chatRoom) {
+  return `<div id="chatbox">
+    <div id="subChatBox">
+      <ul id="chat1">
+        <div class="chat-container" id="chat-scroll"> ${getCommentsHTML(chatRoom.id)}
+        </div>
+      </ul>
+    </div>`
 }
 
 function getCommentsHTML(chatId) {
