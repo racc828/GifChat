@@ -53,7 +53,7 @@ function new_interval(chatRoom) {
    intervalId = setInterval(function(){
      removeAllComments();
      getAllComments().
-     then(() => {$("body #chat-scroll").empty().append(getCommentsHTML(chatRoom.id))
+     then(() => {reRenderChatBoxHTML(chatRoom)
     } )
   }, 1000);
  }
