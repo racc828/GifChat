@@ -6,6 +6,7 @@ function submitComment() {
     let newchatroom = findChatByName(chatroomName)
 
     let commentsInput = $("#add-comments-input").val()
+
     console.log(commentsInput)
 
     let commentsForm = {comment:{text: `${commentsInput}`, user_id:`${store.users[0].id}`, chat_id:`${newchatroom.id}`}}

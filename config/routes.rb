@@ -3,5 +3,6 @@ Rails.application.routes.draw do
 
   resources :users, :chats, :comments
   get "/", to: "application#index", as: "home"
-  
+  get "/check_user", to: "users#check_user", as: 'check_user' 
+
 end

@@ -36,7 +36,7 @@ function joinChatRoom(){
   $("body").on("click", ".chat-room li", function(event){
     event.preventDefault();
     let chatToAdd = getChat(this)
-    store.users[0].chats.push(chatToAdd)
+    // store.users[0].chats.push(chatToAdd)
 
     render(chatRoomHTML(chatToAdd), "body")
   })
