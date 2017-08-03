@@ -21,13 +21,15 @@ class ChatsController < ApplicationController
 
     # byebug
 
-    chats = chats.map do |chat|
-      # byebug
-      # chat
-      {chat: chat, comments: chat.comments}
-    end
+    # chats = chats.map do |chat|
+    #   # byebug
+    #   # chat
+    #   {chat: chat, comments: chat.comments}
+    # end
 
-    render json: {chats: chats, comments: comments }
+    # render json: {chats: chats, comments: comments }
+
+    render json: chats
   end
 
   def create

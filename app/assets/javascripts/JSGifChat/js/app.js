@@ -4,8 +4,8 @@ $(document).ready(function(){
   render(loginHTML(), "body")
   // checkIfUserExists();
   submitUserForm();
-  // getChatRooms();
-  getChatsHTML();
+  getChatRooms();
+  // getChatsHTML();
   submitChatRoom();
   joinChatRoom();
   submitComment();

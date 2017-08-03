@@ -36,6 +36,8 @@ function submitUserForm(){
 
     // console.log(`${username} was added to the database`)
 
+    getAllComments();
+
     render(chatRoomsHTML(), "body")
 
   })

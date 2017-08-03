@@ -4,9 +4,14 @@ function getChatRooms() {
   let  headers3 = new Headers
   headers3.set('Content-Type', 'application/json')
 
-  let config3 = {method: "GET", headers: headers3}
-  let request3 = fetch(url3,config3)
-  let chatHTMLList = request3.then( resp => resp.json() ).then( data => {data.forEach( obj => { store.chats.push(obj) }) })
+  let config3 = {
+    method: "GET",
+    headers: headers3
+  }
+
+  let request3 = fetch(url3, config3)
+
+  let chatHTMLList = request3.then( resp => { return resp.json() } ).then( data => {data.forEach( obj => { store.chats.push(obj) }) })
 
 }
 
@@ -36,16 +41,17 @@ function joinChatRoom(){
   $("body").on("click", ".chat-room li", function(event){
     event.preventDefault();
     let chatToAdd = getChat(this)
+    // getComments(chatToAdd)
     // store.users[0].chats.push(chatToAdd)
 
     render(chatRoomHTML(chatToAdd), "body")
   })
 }
 
-function getChat(thisChat){
+function getChat(chatObject){
   console.log("Joining Chat")
   // console.log(thisChat.id.slice(-1))
-  let idToFind = parseInt(thisChat.id.replace(/\D+/g, ''))
+  let idToFind = parseInt(chatObject.id.replace(/\D+/g, ''))
   let foundChat = findChatById(idToFind)
   return foundChat[0]
 }
