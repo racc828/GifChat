@@ -2,6 +2,7 @@ const store = {users: [], chats: [], comments: []}
 
 $(document).ready(function(){
   render(loginHTML(), "body")
+  keepFocusOnField("body #username-input");
   checkIfUserExists();
   submitUserForm();
   getChatRooms();
@@ -19,4 +20,8 @@ function render(html, into) {
 
 function reRender(html, into) {
   $(`${into}`).append(html)
+}
+
+function keepFocusOnField(into) {
+  $(`${into}`).focus();
 }

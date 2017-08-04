@@ -34,7 +34,9 @@ function submitChatRoom() {
     let request2 = fetch(url2,config2)
     request2.then( resp => resp.json() ).
         then(data => {store.chats.push(data)}).
-          then(() => {render(chatRoomsHTML(), "body")})
+          then(() => {
+            render(chatRoomsHTML(), "body");
+          })
 
   })
 }
@@ -47,7 +49,7 @@ function joinChatRoom(){
     // store.users[0].chats.push(chatToAdd
     new_interval(chatToAdd)
     render(chatRoomHTML(chatToAdd), "body");
-
+    keepFocusOnField("body #add-comments-input");
     automaticScroll();
 
   })
@@ -91,5 +93,6 @@ function goBack(){
     removeAllComments()
     getAllComments()
     render(chatRoomsHTML(), "body")
+    keepFocusOnField("body #chat-room-name")
   })
 }

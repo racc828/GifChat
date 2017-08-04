@@ -41,6 +41,7 @@ function submitUserForm(){
           console.log(`${username} was added to the store`);
           getAllComments();
           render(chatRoomsHTML(), "body")
+          keepFocusOnField("body #chat-room-name");
         }
       })
 
