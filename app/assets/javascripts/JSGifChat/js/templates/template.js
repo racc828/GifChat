@@ -54,13 +54,24 @@ function chatRoomHTML(chatRoom){
         </ul>
       </div>
       <form id="add-comment">
+        <i class="material-icons add-gif" id="gif-toggle">add</i>
         <input id="add-comments-input" type="text" placeholder="Send Message" required>
         <button type="submit" class="btn send-message-btn"><i class="material-icons">send</i></button>
       </form>
-
+      <div id ="slider-container">
+        <div id="slick-slider" class="center" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+        </div>
+      </div>
     </div>
   </div>`
 }
+
+function gifHTML() {
+  let gifs_string = store.gifs.map(gif => {return gif}).join("")
+  debugger;
+  $("body #slick-slider").append(gifs_string)
+}
+
 
 function reRenderChatBoxHTML(chatRoom) {
   $("body #chat-scroll").empty().append(getCommentsHTML(chatRoom.id))

@@ -76,7 +76,7 @@ function automaticScroll() {
 
 
 
-function getGifs(searchTerm){
+function getGifs(searchTerm=""){
 
   // let gifs = []
 
@@ -86,7 +86,11 @@ function getGifs(searchTerm){
     searchTerm = $('body #chatroom-name').text()
   }
 
+  debugger;
+
   let gifQuery = searchTerm.split(' ').join('+')
+
+  debugger;
 
   let url12 = `http://api.giphy.com/v1/gifs/search?q=` + `${gifQuery}` + `&api_key=f2d65e9d48754d739f8eabee2f011f0c`
 
@@ -103,9 +107,10 @@ function getGifs(searchTerm){
   return request12.then( resp => resp.json() ).
     then( data => {
       return data.data.forEach(obj => {
-        store.gifs.push(`<img src="${obj.images.preview_gif.url}">`)
+        store.gifs.push(`<div class="gif-slider"><img src="${obj.images.preview_gif.url}"></div>`)
       })
-    })
+    }).
+    then(() => gifHTML())
 
   // gifs.forEach(gif => {
   //   debugger;
@@ -113,6 +118,23 @@ function getGifs(searchTerm){
   // })
 
 }
+
+// NOTE WE PROBABLY NEED ANOTHER PROMISE
+
+
+// function getNewGifs(){
+//   $('#body').on()
+// }
+
+
+
+
+function toggleGif() {
+  $("body").on("click","#gif-toggle", function(event){
+    console.log("clicked")
+      $("body #slider-container").slideToggle( "slow")
+    })
+  }
 
 
 // function randomBorderColor() {

@@ -6,6 +6,10 @@ body {
 
 }
 
+#slider-container{
+  display:none;
+}
+
 .main-container {
   width:600px;
   margin-left:0;
@@ -26,6 +30,13 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
   background:#330867;
 }
 
+.add-gif {
+  float:left;
+  margin-top:10px;
+  margin-right:10px;
+
+}
+
 .send-message-btn {
   position:absolute;
   bottom:35px;
@@ -41,6 +52,7 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
   margin-bottom:0;
   color:#000;
   opacity:1;
+  width:90%;
 
 }
 

@@ -49,9 +49,12 @@ function joinChatRoom(){
     // store.users[0].chats.push(chatToAdd
     new_interval(chatToAdd)
     render(chatRoomHTML(chatToAdd), "body");
+    let gifInputValue = $("body #add-comments-input").val()
+    debugger;
+    getGifs(gifInputValue);
+    debugger;
     keepFocusOnField("body #add-comments-input");
     automaticScroll();
-
   })
 }
 
