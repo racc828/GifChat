@@ -41,9 +41,10 @@ function getAllComments(){
 
   return request11.then( resp => resp.json() ).
     then( data => {
-       return data.forEach( obj => { store.comments.push(obj)
-    })
-  })
+       return data.forEach( obj => {
+         store.comments.push(obj)
+       })
+     })
 }
 
 function getComments(chatObj){
@@ -77,15 +78,13 @@ function automaticScroll() {
 
 function getGifs(searchTerm){
 
-  let gifs = []
+  // let gifs = []
+
+  store.gifs = []
 
   let gifQuery = searchTerm.split(' ').join('+')
 
-  // let query = swap string argument spaces with +
-
   let url12 = `http://api.giphy.com/v1/gifs/search?q=` + `${gifQuery}` + `&api_key=f2d65e9d48754d739f8eabee2f011f0c`
-
-  debugger;
 
   let  headers12 = new Headers
   headers12.set('Content-Type', 'application/json')
@@ -97,14 +96,17 @@ function getGifs(searchTerm){
 
   let request12 = fetch(url12, config12)
 
-  let gifList = request12.then( resp => resp.json() ).
+  return request12.then( resp => resp.json() ).
     then( data => {
-      data.data.forEach(obj => {
-        gifs.push(`<img src="${obj.images.preview_gif.url}">`)
+      return data.data.forEach(obj => {
+        store.gifs.push(`<img src="${obj.images.preview_gif.url}">`)
       })
     })
 
-  return gifs
+  // gifs.forEach(gif => {
+  //   debugger;
+  //   $("body").append(gif)
+  // })
 
 }
 

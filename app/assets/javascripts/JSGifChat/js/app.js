@@ -1,4 +1,4 @@
-const store = {users: [], chats: [], comments: []}
+const store = {users: [], chats: [], comments: [], gifs: []}
 
 $(document).ready(function(){
   render(loginHTML(), "body")
