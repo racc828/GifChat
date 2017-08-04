@@ -82,6 +82,10 @@ function getGifs(searchTerm){
 
   store.gifs = []
 
+  if(searchTerm === ""){
+    searchTerm = $('body #chatroom-name').text()
+  }
+
   let gifQuery = searchTerm.split(' ').join('+')
 
   let url12 = `http://api.giphy.com/v1/gifs/search?q=` + `${gifQuery}` + `&api_key=f2d65e9d48754d739f8eabee2f011f0c`
