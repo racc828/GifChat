@@ -96,3 +96,5 @@ function goBack(){
     keepFocusOnField("body #chat-room-name")
   })
 }
+
+// filterChats $("body #chat7").contents()[1]

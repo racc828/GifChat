@@ -73,6 +73,42 @@ function automaticScroll() {
   $("body #chat-scroll").scrollTop($("body #chat-scroll")[0].scrollHeight);
 }
 
+
+
+function getGifs(searchTerm){
+
+  let gifs = []
+
+  let gifQuery = searchTerm.split(' ').join('+')
+
+  // let query = swap string argument spaces with +
+
+  let url12 = `http://api.giphy.com/v1/gifs/search?q=` + `${gifQuery}` + `&api_key=f2d65e9d48754d739f8eabee2f011f0c`
+
+  debugger;
+
+  let  headers12 = new Headers
+  headers12.set('Content-Type', 'application/json')
+
+  let config12 = {
+    method: "GET",
+    headers: headers12
+  }
+
+  let request12 = fetch(url12, config12)
+
+  let gifList = request12.then( resp => resp.json() ).
+    then( data => {
+      data.data.forEach(obj => {
+        gifs.push(`<img src="${obj.images.preview_gif.url}">`)
+      })
+    })
+
+  return gifs
+
+}
+
+
 // function randomBorderColor() {
 //   var randomColor = Math.floor(Math.random()*16777215).toString(16);
 //   $("body .random-border").css("border-color", "#" + randomColor)
