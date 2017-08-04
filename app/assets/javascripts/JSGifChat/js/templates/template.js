@@ -69,7 +69,7 @@ function reRenderChatBoxHTML(chatRoom) {
 function getCommentsHTML(chatId) {
   let filteredComments = getCommentsById(chatId)
   return filteredComments.map(comment => {
-    return `<li id="comment${comment.id}">${comment.text}</li>`
+    return `<li id="comment${comment.id}" class="random-border">${comment.text}</li>`
   }).join("")
 }
 

@@ -18,6 +18,7 @@ function getChatRooms() {
 
 function submitChatRoom() {
   $("body").on("submit", "#add-chat", function(event){
+
     event.preventDefault()
     let chatRoomInput = $("#chat-room-name").val()
     console.log(chatRoomInput)
@@ -34,6 +35,7 @@ function submitChatRoom() {
     request2.then( resp => resp.json() ).
         then(data => {store.chats.push(data)}).
           then(() => {render(chatRoomsHTML(), "body")})
+
   })
 }
 
@@ -42,9 +44,12 @@ function joinChatRoom(){
     event.preventDefault();
     let chatToAdd = getChat(this)
     // getComments(chatToAdd)
-    // store.users[0].chats.push(chatToAdd)
+    // store.users[0].chats.push(chatToAdd
     new_interval(chatToAdd)
-    render(chatRoomHTML(chatToAdd), "body")
+    render(chatRoomHTML(chatToAdd), "body");
+
+    automaticScroll();
+
   })
 }
 

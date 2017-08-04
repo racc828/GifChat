@@ -20,7 +20,7 @@ function submitComment() {
     let request6 = fetch(url6,config6)
     request6.then( resp => resp.json() ).
         then(data => {store.comments.push(data)}).
-          then(() => { render(chatRoomHTML(newchatroom), "body")})
+          then(() => { render(chatRoomHTML(newchatroom), "body");automaticScroll();keepFocusOnFieldAfterSubmit();})
   })
 }
 
@@ -51,7 +51,6 @@ function getComments(chatObj){
 
   let config10 = {method: "GET", headers: headers10}
   let request10 = fetch(url10, config10)
-
   let CommentHTMLList = request10.then( resp => resp.json() ).
     then( data => {
       let allFilteredComments = filterComments(data, chatObj.id);
@@ -65,3 +64,16 @@ function filterComments(commentsArray, chatId){
     return comment.chat_id === chatId
   })
 }
+
+function automaticScroll() {
+  $("body #chat-scroll").scrollTop($("body #chat-scroll")[0].scrollHeight);
+}
+
+function keepFocusOnFieldAfterSubmit() {
+  $('body #add-comments-input').focus();
+}
+
+// function randomBorderColor() {
+//   var randomColor = Math.floor(Math.random()*16777215).toString(16);
+//   $("body .random-border").css("border-color", "#" + randomColor)
+// }
