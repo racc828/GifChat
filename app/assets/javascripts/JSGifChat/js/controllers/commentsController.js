@@ -86,11 +86,11 @@ function getGifs(searchTerm=""){
     searchTerm = $('body #chatroom-name').text()
   }
 
-  debugger;
+  // debugger;
 
   let gifQuery = searchTerm.split(' ').join('+')
 
-  debugger;
+  // debugger;
 
   let url12 = `http://api.giphy.com/v1/gifs/search?q=` + `${gifQuery}` + `&api_key=f2d65e9d48754d739f8eabee2f011f0c`
 
@@ -122,9 +122,14 @@ function getGifs(searchTerm=""){
 // NOTE WE PROBABLY NEED ANOTHER PROMISE
 
 
-// function getNewGifs(){
-//   $('#body').on()
-// }
+function getNewGifs(){
+  $('body').on('click', '#get-new-gifs', function(event){
+    console.log("typing something")
+    let gifSearchTerm = $('body #add-comments-input').val()
+    $("body #slick-slider").empty()
+    getGifs(gifSearchTerm)
+  })
+}
 
 
 

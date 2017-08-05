@@ -50,11 +50,12 @@ function joinChatRoom(){
     new_interval(chatToAdd)
     render(chatRoomHTML(chatToAdd), "body");
     let gifInputValue = $("body #add-comments-input").val()
-    debugger;
+    // debugger;
     getGifs(gifInputValue);
-    debugger;
+    // debugger;
     keepFocusOnField("body #add-comments-input");
     automaticScroll();
+    getNewGifs();
   })
 }
 
@@ -95,6 +96,7 @@ function goBack(){
     clearInterval(intervalId)
     removeAllComments()
     getAllComments()
+    $("body #slick-slider").empty()
     render(chatRoomsHTML(), "body")
     keepFocusOnField("body #chat-room-name")
   })
