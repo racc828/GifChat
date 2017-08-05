@@ -59,6 +59,22 @@ function joinChatRoom(){
   })
 }
 
+function filterChatroom(){
+  $("body").on("keyup", "#find-chat-room", function(event){
+
+    let filterWord = $('#find-chat-room').val()
+
+    let allChats = store.chats.filter(chat => {
+      return chat.name.includes(filterWord)
+    })
+
+    $("body .chat-room").empty()
+    $("body .chat-room").append(getFilteredChatsHTML(allChats))
+
+    // filterChats $("body #chat7").contents()[1]
+  })
+}
+
 
 function new_interval(chatRoom) {
    intervalId = setInterval(function(){
@@ -102,5 +118,3 @@ function goBack(){
     keepFocusOnField("body #chat-room-name")
   })
 }
-
-// filterChats $("body #chat7").contents()[1]

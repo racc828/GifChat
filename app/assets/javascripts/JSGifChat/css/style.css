@@ -53,10 +53,20 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
   color:#000;
   opacity:1;
   width:90%;
+}
 
+#gif-query {
+  margin-bottom:0;
+  color:#000;
+  opacity:1;
+  width:80%;
 }
 
 #chat-room-name {
+  color:#fff;
+}
+
+#find-chat-room {
   color:#fff;
 }
 

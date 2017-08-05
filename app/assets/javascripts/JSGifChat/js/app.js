@@ -9,8 +9,10 @@ $(document).ready(function(){
   // getChatsHTML();
   submitChatRoom();
   joinChatRoom();
+  filterChatroom();
   submitComment();
   toggleGif();
+  submitGifComment();
   goBack();
 })
 

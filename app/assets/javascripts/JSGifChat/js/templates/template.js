@@ -20,7 +20,12 @@ function chatRoomsHTML() {
         <label> Enter New Chat Name:</label>
         <input id="chat-room-name" type="text" name="enter-chat-name" required>
         <input type="submit" value="create chat" class="btn">
-      </form>
+      </form><br>
+
+      <div id="filter-chat">
+        <label> Find A Chat:</label>
+        <input id="find-chat-room" type="text" name="filter-chat-name">
+      </div>
 
       <div id="chats">
         <ul id="chatList">
@@ -36,7 +41,14 @@ function chatRoomsHTML() {
 function getChatsHTML() {
   return store.chats.map(function(chat){
 
-    return `<li id="chat${chat.id}"><div class="overlay"><h5>Join Chat</h5></div>${chat.name}</li>`
+    return `<li id="chat${chat.id}" class= "chat-item"><div class="overlay"><h5>Join Chat</h5></div><div id="displayedChatroom">${chat.name}</div></li>`
+  }).reverse().join("")
+}
+
+function getFilteredChatsHTML(arrayOfChats) {
+  return arrayOfChats.map(chat => {
+
+    return `<li id="chat${chat.id}" class= "chat-item"><div class="overlay"><h5>Join Chat</h5></div><div id="displayedChatroom">${chat.name}</div></li>`
   }).reverse().join("")
 }
 
@@ -58,11 +70,19 @@ function chatRoomHTML(chatRoom){
         <input id="add-comments-input" type="text" placeholder="Send Message" required>
         <button type="submit" class="btn send-message-btn"><i class="material-icons">send</i></button>
       </form>
-        <button id="get-new-gifs" type="submit">Get Gifs</button>
+
       <div id ="slider-container">
+
+        <div id="gif-search">
+          <input id="gif-query" type="text" placeholder="Search For Gifs">
+          <button id="get-new-gifs" type="submit"><i class="material-icons">search</i>Get Gifs</button>
+        </div>
+
         <div id="slick-slider" class="center" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
         </div>
+
       </div>
+
     </div>
   </div>`
 }

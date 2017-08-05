@@ -22,11 +22,51 @@ function submitComment() {
         then(data => {store.comments.push(data)}).
           then(() => {
             render(chatRoomHTML(newchatroom), "body");
+            let gifSearchQuery = $("body #gif-query").val()
+            getGifs(gifSearchQuery);
             automaticScroll();
             keepFocusOnField("body #add-comments-input");
           })
   })
 }
+
+function submitGifComment() {
+  $("body").on("click", ".gif-slider", function(event){
+
+    let currentChatroomName = $('#chatroom-name')[0].innerText
+
+    let foundChatroom = findChatByName(currentChatroomName)
+
+    let newCommentInput = this.innerHTML
+
+    console.log(newCommentInput)
+
+    let commentsForm = {comment:{text: `${newCommentInput}`, user_id:`${store.users[0].id}`, chat_id:`${foundChatroom.id}`}}
+
+    let url14 = "http://localhost:3000/comments/"
+
+    let  headers14 = new Headers
+    headers14.set('Content-Type', 'application/json')
+
+    let config14 = {method: "POST", headers: headers14, body: JSON.stringify(commentsForm) }
+    let request14 = fetch(url14,config14)
+    request14.then( resp => resp.json() ).
+        then(data => {store.comments.push(data)}).
+          then(() => {
+            render(chatRoomHTML(foundChatroom), "body");
+            let gifSearchQuery2 = $("body #gif-query").val()
+            getGifs(gifSearchQuery2);
+            automaticScroll();
+            keepFocusOnField("body #add-comments-input");
+          })
+  })
+}
+
+// function sendGifOnClick(){
+//   $("body").on("click",".gif-slider", function(event){
+//     console.log(this.innerHTML)
+//   })
+// }
 
 
 function getAllComments(){
@@ -124,8 +164,8 @@ function getGifs(searchTerm=""){
 
 function getNewGifs(){
   $('body').on('click', '#get-new-gifs', function(event){
-    console.log("typing something")
-    let gifSearchTerm = $('body #add-comments-input').val()
+    // console.log("typing something")
+    let gifSearchTerm = $('body #gif-query').val()
     $("body #slick-slider").empty()
     store.gifs = []
     getGifs(gifSearchTerm)
@@ -135,9 +175,11 @@ function getNewGifs(){
 function toggleGif() {
   $("body").on("click","#gif-toggle", function(event){
     console.log("clicked")
-      $("body #slider-container").slideToggle( "slow")
-    })
-  }
+    $("body #slider-container").slideToggle( "slow")
+  })
+}
+
+
 
 
 // function randomBorderColor() {
