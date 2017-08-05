@@ -97,6 +97,7 @@ function goBack(){
     removeAllComments()
     getAllComments()
     $("body #slick-slider").empty()
+    store.gifs = []
     render(chatRoomsHTML(), "body")
     keepFocusOnField("body #chat-room-name")
   })

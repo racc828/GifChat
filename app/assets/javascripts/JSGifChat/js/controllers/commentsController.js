@@ -127,12 +127,10 @@ function getNewGifs(){
     console.log("typing something")
     let gifSearchTerm = $('body #add-comments-input').val()
     $("body #slick-slider").empty()
+    store.gifs = []
     getGifs(gifSearchTerm)
   })
 }
-
-
-
 
 function toggleGif() {
   $("body").on("click","#gif-toggle", function(event){
