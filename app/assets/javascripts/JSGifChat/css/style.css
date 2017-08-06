@@ -15,6 +15,23 @@ body {
   padding-right:1rem;
 }
 
+#slick-slider {
+  padding-top:10px;
+}
+
+.gif-slider {
+  text-align:center;
+}
+
+.gif-slider img {
+  width:100%;
+}
+
+.slick-list {
+  padding-top:10px!important;
+  padding-bottom:10px!important;
+}
+
 .main-container {
   width:600px;
   margin-left:0;

@@ -42,8 +42,10 @@ function submitChatRoom() {
 }
 
 function joinChatRoom(){
+
   $("body").on("click", ".chat-room li", function(event){
     event.preventDefault();
+
     let chatToAdd = getChat(this)
     // getComments(chatToAdd)
     // store.users[0].chats.push(chatToAdd
@@ -56,6 +58,7 @@ function joinChatRoom(){
     keepFocusOnField("body #add-comments-input");
     automaticScroll();
     getNewGifs();
+
   })
 }
 

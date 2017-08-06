@@ -36,7 +36,7 @@ $('body .center').slick({
   slidesToShow: 3,
   responsive: [
     {
-      breakpoint: 768,
+      breakpoint: 500,
       settings: {
         arrows: false,
         centerMode: true,
@@ -45,7 +45,7 @@ $('body .center').slick({
       }
     },
     {
-      breakpoint: 480,
+      breakpoint: 320,
       settings: {
         arrows: false,
         centerMode: true,

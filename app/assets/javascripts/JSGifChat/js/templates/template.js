@@ -53,6 +53,7 @@ function getFilteredChatsHTML(arrayOfChats) {
 }
 
 function chatRoomHTML(chatRoom){
+  
   return `<div id="chatroom" class="main-container">
   <div class="chat-top-bar">
       <i class="small material-icons" id="back">arrow_back</i>
@@ -79,9 +80,9 @@ function chatRoomHTML(chatRoom){
         </div>
       </div>
 
-      <div id ="slider-container">    
+      <div id ="slider-container">
 
-        <div id="slick-slider" class="center" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+        <div id="slick-slider" class="center" data-slick='{"slidesToShow": 3, "slidesToScroll": 3}'>
         </div>
 
       </div>
@@ -94,11 +95,13 @@ function gifHTML() {
   let gifs_string = store.gifs.map(gif => {return gif}).join("")
   // debugger;
   $("body #slick-slider").append(gifs_string)
+
 }
 
 
 function reRenderChatBoxHTML(chatRoom) {
   $("body #chat-scroll").empty().append(getCommentsHTML(chatRoom.id))
+
 }
 
 function getCommentsHTML(chatId) {
