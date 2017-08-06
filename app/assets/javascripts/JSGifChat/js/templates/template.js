@@ -65,18 +65,21 @@ function chatRoomHTML(chatRoom){
           </div>
         </ul>
       </div>
-      <form id="add-comment">
+      <form id="add-comment" class="toggle-comment-form">
         <i class="material-icons add-gif" id="gif-toggle">add</i>
-        <input id="add-comments-input" type="text" placeholder="Send Message" required>
+        <input id="add-comments-input" class="chat-form-input" type="text" placeholder="Send Message" required>
         <button type="submit" class="btn send-message-btn"><i class="material-icons">send</i></button>
       </form>
 
-      <div id ="slider-container">
-
+      <div id="gif-search-form" class="toggle-gif-search">
         <div id="gif-search">
-          <input id="gif-query" type="text" placeholder="Search For Gifs">
-          <button id="get-new-gifs" type="submit"><i class="material-icons">search</i>Get Gifs</button>
+          <i class="material-icons add-gif" id="gif-toggle">search</i>
+          <input id="gif-query" class="chat-form-input" type="text" placeholder="Search For Gifs">
+          <button id="get-new-gifs"  class="btn" type="submit">Get Gifs</button>
         </div>
+      </div>
+
+      <div id ="slider-container">    
 
         <div id="slick-slider" class="center" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
         </div>

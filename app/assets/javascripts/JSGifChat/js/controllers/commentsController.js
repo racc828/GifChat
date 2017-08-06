@@ -173,9 +173,13 @@ function getNewGifs(){
 }
 
 function toggleGif() {
+  runSlickSliderCenterFocus()
   $("body").on("click","#gif-toggle", function(event){
     console.log("clicked")
     $("body #slider-container").slideToggle( "slow")
+    $("body .toggle-comment-form").toggleClass("hide-form")
+    $("body .toggle-gif-search").toggleClass("display-form")
+
   })
 }
 
