@@ -30,7 +30,7 @@ function keepFocusOnField(into) {
 }
 
 function runSlickSliderCenterFocus() {
-$('.center').slick({
+$('body .center').slick({
   centerMode: true,
   centerPadding: '60px',
   slidesToShow: 3,

@@ -159,9 +159,6 @@ function getGifs(searchTerm=""){
 
 }
 
-// NOTE WE PROBABLY NEED ANOTHER PROMISE
-
-
 function getNewGifs(){
   $('body').on('click', '#get-new-gifs', function(event){
     // console.log("typing something")
@@ -179,7 +176,7 @@ function toggleGif() {
     $("body #slider-container").slideToggle( "slow")
     $("body .toggle-comment-form").toggleClass("hide-form")
     $("body .toggle-gif-search").toggleClass("display-form")
-
+    runSlickSliderCenterFocus()
   })
 }
 

@@ -10,6 +10,11 @@ body {
   display:none;
 }
 
+.arrow-btns {
+  padding-left:1rem;
+  padding-right:1rem;
+}
+
 .main-container {
   width:600px;
   margin-left:0;
