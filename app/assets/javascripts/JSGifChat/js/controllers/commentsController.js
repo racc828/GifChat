@@ -162,7 +162,8 @@ function getGifs(searchTerm=""){
 }
 
 function getNewGifs(){
-  $('body').on('click', '#get-new-gifs', function(event){
+  $('body').on('submit', '#gif-search', function(event){
+    event.preventDefault();
     // console.log("typing something")
     let gifSearchTerm = $('body #gif-query').val()
     render(chatRoomHTML(findChatByName($('body #chatroom-name')[0].innerText)), "body")
@@ -196,6 +197,7 @@ function showGifsDuringChat(){
   $("body .toggle-gif-search").toggleClass("display-form")
   owlCarousel()
 }
+
 
 // function randomBorderColor() {
 //   var randomColor = Math.floor(Math.random()*16777215).toString(16);

@@ -73,11 +73,11 @@ function chatRoomHTML(chatRoom){
       </form>
 
       <div id="gif-search-form" class="toggle-gif-search">
-        <div id="gif-search">
+        <form id="gif-search">
           <i class="material-icons add-gif" id="gif-toggle">expand_less</i>
           <input id="gif-query" class="chat-form-input" type="text" placeholder="Search For Gifs">
           <button id="get-new-gifs"  class="btn" type="submit">Get Gifs</button>
-        </div>
+        </form>
       </div>
 
       <div id ="slider-container">
