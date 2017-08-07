@@ -69,7 +69,7 @@ function filterChatroom(){
     let filterWord = $('#find-chat-room').val()
 
     let allChats = store.chats.filter(chat => {
-      return chat.name.includes(filterWord)
+      return chat.name.toLowerCase().includes(filterWord.toLowerCase())
     })
 
     $("body .chat-room").empty()
