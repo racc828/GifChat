@@ -175,7 +175,15 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
   margin-bottom:0;
   color:#000;
   opacity:1;
-  width:80%;
+  position: relative;
+  width:60%;
+  left: 60px;
+}
+
+#mag-icon {
+  position: relative;
+  left: 60px;
+  bottom: -10px;
 }
 
 #chat-room-name {

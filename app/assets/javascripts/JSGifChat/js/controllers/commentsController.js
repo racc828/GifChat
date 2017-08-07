@@ -161,25 +161,62 @@ function getGifs(searchTerm=""){
 
 }
 
-function getNewGifs(){
-  $('body').on('submit', '#gif-search', function(event){
-    event.preventDefault();
-    // console.log("typing something")
-    let gifSearchTerm = $('body #gif-query').val()
-    render(chatRoomHTML(findChatByName($('body #chatroom-name')[0].innerText)), "body")
-    store.gifs = []
-    getGifs(gifSearchTerm)
+// function getNewGifs(){
+//   $('body').on('submit', '#gif-search', function(event){
+//     event.preventDefault();
+//     // console.log("typing something")
+//     let gifSearchTerm = $('body #gif-query').val()
+//     render(chatRoomHTML(findChatByName($('body #chatroom-name')[0].innerText)), "body")
+//     store.gifs = []
+//     getGifs(gifSearchTerm)
+//
+//     setTimeout(() => {
+//       showGifsDuringChat()
+//       keepFocusOnField("body #gif-query")
+//     }, 1000);
+//
+//     $("body #gif-query").val(gifSearchTerm)
+//     checker = true
+//
+//   })
+// }
 
-    setTimeout(() => {
-      showGifsDuringChat()
-      keepFocusOnField("body #gif-query")
-    }, 1000);
 
-    $("body #gif-query").val(gifSearchTerm)
-    checker = true
+//setup before functions
+var typingTimer;                //timer identifier
 
-  })
+//on keyup, start the countdown
+
+function resetCountdown(){
+  $("body").on('keyup', "#gif-query", () => {
+    clearTimeout(typingTimer);
+    typingTimer = setTimeout(doneTyping, 1000);
+  });
 }
+
+//on keydown, clear the countdown
+function clearCountdown(){
+  $("body").on('keydown', "#gif-query", () => {
+    clearTimeout(typingTimer);
+  });
+}
+
+//user is "finished typing," do something
+function doneTyping () {
+  let gifSearchTerm = $('body #gif-query').val()
+  render(chatRoomHTML(findChatByName($('body #chatroom-name')[0].innerText)), "body")
+  store.gifs = []
+  getGifs(gifSearchTerm)
+
+  setTimeout(() => {
+    showGifsDuringChat()
+    keepFocusOnField("body #gif-query")
+  }, 1000);
+
+  $("body #gif-query").val(gifSearchTerm)
+  checker = true
+}
+
 
 function toggleGif() {
   $("body").on("click","#gif-toggle", function(event){
