@@ -58,7 +58,6 @@ function joinChatRoom(){
     // debugger;
     keepFocusOnField("body #add-comments-input");
     automaticScroll();
-    getNewGifs();
 
   })
 }

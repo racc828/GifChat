@@ -11,6 +11,7 @@ $(document).ready(function(){
   joinChatRoom();
   filterChatroom();
   submitComment();
+  getNewGifs();
   toggleGif();
   submitGifComment();
   goBack();
