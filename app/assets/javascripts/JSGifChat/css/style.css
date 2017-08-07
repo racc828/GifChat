@@ -6,9 +6,19 @@ body {
 
 }
 
+.owl-stage {
+  padding-top:25px;
+  padding-bottom:25px;
+}
+
 #slider-container{
   display:none;
   padding-top:10px;
+}
+
+.owl-carousel .owl-item img {
+  height:100px;
+  width:150px;
 }
 
 .bubbledLeft,.bubbledRight {
