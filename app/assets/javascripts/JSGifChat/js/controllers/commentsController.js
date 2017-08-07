@@ -56,7 +56,9 @@ function submitGifComment() {
             render(chatRoomHTML(foundChatroom), "body");
             let gifSearchQuery2 = $("body #gif-query").val()
             getGifs(gifSearchQuery2);
-            automaticScroll();
+            setTimeout(() => {
+              automaticScroll();
+            }, 50);
             keepFocusOnField("body #add-comments-input");
           })
   })

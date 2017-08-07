@@ -57,7 +57,10 @@ function joinChatRoom(){
     getGifs(gifInputValue);
     // debugger;
     keepFocusOnField("body #add-comments-input");
-    automaticScroll();
+
+    setTimeout(() => {
+      automaticScroll();
+    }, 50);
 
   })
 }
@@ -85,7 +88,7 @@ function new_interval(chatRoom) {
      getAllComments().
      then(() => {reRenderChatBoxHTML(chatRoom)
     } )
-  }, 50000);
+  }, 1000);
  }
 
 
