@@ -8,6 +8,12 @@ body {
 
 #slider-container{
   display:none;
+  padding-top:10px;
+}
+
+.owl-nav {
+  text-align:center;
+  margin-top:8px;
 }
 
 .arrow-btns {
@@ -163,6 +169,10 @@ input[type=email]:not(.browser-default):focus:not([readonly]) {
   border:1px solid #330867;
   border-radius:4px;
 
+}
+
+.owl-carousel {
+  display:block;
 }
 
 .chat-room li {

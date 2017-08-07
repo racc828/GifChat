@@ -163,7 +163,7 @@ function getNewGifs(){
   $('body').on('click', '#get-new-gifs', function(event){
     // console.log("typing something")
     let gifSearchTerm = $('body #gif-query').val()
-    $("body #slick-slider").empty()
+    render(chatRoomHTML(findChatByName($('body #chatroom-name')[0].innerText)), "body")
     store.gifs = []
     getGifs(gifSearchTerm)
 
@@ -175,7 +175,7 @@ function toggleGif() {
     $("body #slider-container").slideToggle( "slow")
     $("body .toggle-comment-form").toggleClass("hide-form")
     $("body .toggle-gif-search").toggleClass("display-form")
-    runSlickSliderCenterFocus()
+    owlCarousel()
   })
 
 }

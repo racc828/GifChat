@@ -115,7 +115,7 @@ function goBack(){
     clearInterval(intervalId)
     removeAllComments()
     getAllComments()
-    $("body #slick-slider").empty()
+    $("body #owl-carousel").empty()
     store.gifs = []
     render(chatRoomsHTML(), "body")
     keepFocusOnField("body #chat-room-name")

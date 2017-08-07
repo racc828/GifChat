@@ -14,6 +14,7 @@ $(document).ready(function(){
   toggleGif();
   submitGifComment();
   goBack();
+
 })
 
 function render(html, into) {
@@ -29,30 +30,25 @@ function keepFocusOnField(into) {
   $(`${into}`).focus();
 }
 
-function runSlickSliderCenterFocus() {
-$('body .center').slick({
-  centerMode: true,
-  centerPadding: '60px',
-  slidesToShow: 3,
-  responsive: [
-    {
-      breakpoint: 500,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 3
-      }
-    },
-    {
-      breakpoint: 320,
-      settings: {
-        arrows: false,
-        centerMode: true,
-        centerPadding: '40px',
-        slidesToShow: 1
-      }
+function owlCarousel() {
+  $('.owl-carousel').owlCarousel({
+    loop:true,
+    margin:10,
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:1,
+            nav:true
+        },
+        600:{
+            items:3,
+            nav:true
+        },
+        1000:{
+            items:5,
+            nav:true,
+            loop:false
+        }
     }
-  ]
-});
+})
 }
