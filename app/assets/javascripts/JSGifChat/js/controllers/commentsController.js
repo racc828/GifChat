@@ -22,7 +22,7 @@ function submitComment() {
         then(data => {store.comments.push(data)}).
           then(() => {
             render(chatRoomHTML(newchatroom), "body");
-            let gifSearchQuery = $("body #gif-query").val()
+            let gifSearchQuery = $("body #gif-query").val();
             getGifs(gifSearchQuery);
             automaticScroll();
             keepFocusOnField("body #add-comments-input");
