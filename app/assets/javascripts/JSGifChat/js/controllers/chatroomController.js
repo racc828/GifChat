@@ -86,7 +86,7 @@ function new_interval(chatRoom) {
      getAllComments().
      then(() => {reRenderChatBoxHTML(chatRoom)
     } )
-  }, 1000);
+  }, 50000);
  }
 
 

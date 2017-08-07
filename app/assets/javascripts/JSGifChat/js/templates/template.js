@@ -107,12 +107,11 @@ function reRenderChatBoxHTML(chatRoom) {
 function getCommentsHTML(chatId) {
   let filteredComments = getCommentsById(chatId)
   return filteredComments.map(comment => {
-
     if(comment.user_id === store.users[0].id){
-      return `<li id="comment${comment.id}" class="random-border shift-right">${comment.text}</li>`
+      return `<li id="comment${comment.id}" class="random-border bubbledRight">${comment.text}</li>`
     }
     else{
-      return `<li id="comment${comment.id}" class="random-border">${comment.text}</li>`
+      return `<li id="comment${comment.id}" class="random-border bubbledLeft">${comment.text}</li>`
     }
 
   }).join("")
