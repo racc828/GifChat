@@ -11,6 +11,10 @@ body {
   padding-top:10px;
 }
 
+.shift-right {
+  text-align:right;
+}
+
 .owl-nav {
   text-align:center;
   margin-top:8px;
