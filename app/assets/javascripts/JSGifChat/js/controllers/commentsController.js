@@ -147,7 +147,9 @@ function getGifs(searchTerm=""){
   return request12.then( resp => resp.json() ).
     then( data => {
       return data.data.forEach(obj => {
-        store.gifs.push(`<div class="gif-slider"><img src="${obj.images.preview_gif.url}"></div>`)
+        if(obj.images.preview_gif){
+          store.gifs.push(`<div class="gif-slider"><img src="${obj.images.preview_gif.url}"></div>`)
+        }
       })
     }).
     then(() => gifHTML())
@@ -167,21 +169,33 @@ function getNewGifs(){
     store.gifs = []
     getGifs(gifSearchTerm)
 
+    setTimeout(() => {
+      showGifsDuringChat()
+      keepFocusOnField("body #gif-query")
+    }, 1000);
+
+    $("body #gif-query").val(gifSearchTerm)
+    checker = true
+
   })
 }
 
 function toggleGif() {
   $("body").on("click","#gif-toggle", function(event){
-    $("body #slider-container").slideToggle( "slow")
-    $("body .toggle-comment-form").toggleClass("hide-form")
-    $("body .toggle-gif-search").toggleClass("display-form")
-    owlCarousel()
-  })
 
+    checker = !checker
+    showGifsDuringChat()
+    checker ? keepFocusOnField("body #gif-query") : keepFocusOnField("body #add-comments-input")
+
+  })
 }
 
-
-
+function showGifsDuringChat(){
+  $("body #slider-container").slideToggle( "slow")
+  $("body .toggle-comment-form").toggleClass("hide-form")
+  $("body .toggle-gif-search").toggleClass("display-form")
+  owlCarousel()
+}
 
 // function randomBorderColor() {
 //   var randomColor = Math.floor(Math.random()*16777215).toString(16);

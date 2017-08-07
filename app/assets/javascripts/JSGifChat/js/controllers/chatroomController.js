@@ -51,6 +51,7 @@ function joinChatRoom(){
     // store.users[0].chats.push(chatToAdd
     new_interval(chatToAdd)
     render(chatRoomHTML(chatToAdd), "body");
+    checker = false
     let gifInputValue = $("body #add-comments-input").val()
     // debugger;
     getGifs(gifInputValue);
@@ -115,7 +116,6 @@ function goBack(){
     clearInterval(intervalId)
     removeAllComments()
     getAllComments()
-    $("body #owl-carousel").empty()
     store.gifs = []
     render(chatRoomsHTML(), "body")
     keepFocusOnField("body #chat-room-name")

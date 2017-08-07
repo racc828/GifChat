@@ -52,3 +52,5 @@ function owlCarousel() {
     }
 })
 }
+
+checker = false
